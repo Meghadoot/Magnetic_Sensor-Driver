@@ -4,7 +4,7 @@ This is a library for the Magnetic sensor (driver) designed specifically to work
 
 ## Table of Contents
 
-1. [Magnetic Sensor](#MagneticSensor)
+1. [Magnetic Sensor](#Magnetic-Sensor)
 2. [Table of Contents](#table-of-contents)
 3. [Summary](#summary)
 4. [Installation](#installation)
@@ -30,15 +30,27 @@ To use this library download the zip file or clone the repository, decompress it
 
 * Include the library at the top of your Arduino script. `#include <Magnetic_Flux_Sensor>`
 * Create a global or local variable. 
-  
- `Magnetic_Flux_Sensor mfs(Analog_pin)`
+
+ `Magnetic_Flux_Sensor mfs(Analog_pin, Unit)`
   ```
    *  Analog_pin: Any Analog Pin on Arduino Board 
+   *  Unit: Unit of measurement (Gauss, Tesla)
   ```
  
-* Read the exact Magnetic-flux value in Gauss.
+  Or simply,
+  
+ `Magnetic_Flux_Sensor mfs(Analog_pin)`
+
+ Honeywell SS49E sensor (OUT pin) can be connected to any analog pin on arduino board.
+ ![honeywell_sensor_connection](https://user-images.githubusercontent.com/25079922/50458155-4c69f180-0961-11e9-8bc8-8902055f7a7c.png)
+ 
+* Read the exact Magnetic-flux value.
 
  `float current = mfs.calculateMagneticField()`
+ 
+* To get magnetic polarity. 
+
+ `POLE magnetic_pole = mfs.poleDetector()`
  
 ## Contributing
 
